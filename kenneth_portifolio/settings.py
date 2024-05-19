@@ -64,6 +64,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5500",
     "http://192.168.100.6:5500",
+    "https://masaba-kenneth.vercel.app",
+    "http://masaba-kenneth.vercel.app",
 ]
 
 ROOT_URLCONF = 'kenneth_portifolio.urls'
