@@ -7,21 +7,13 @@ from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.models import User
 from rest_framework.exceptions import NotFound
 
-# class ProjectViewSet(viewsets.ModelViewSet):
-#     queryset = Project.objects.all()
-#     serializer_class = ProjectSerializer
-#     permission_classes = [IsAuthenticated]
+from django.http import HttpResponse
 
-#     def perform_create(self, serializer):
-#         serializer.save(user=self.request.user)
 
-# class ProfileViewSet(viewsets.ModelViewSet):
-#     queryset = Profile.objects.all()
-#     serializer_class = ProfileSerializer
-#     permission_classes = [IsAuthenticated]
+def health_check(request):
+    return HttpResponse("OK", status=200)
 
-#     def perform_create(self, serializer):
-#         serializer.save(user=self.request.user)
+
 
 class UserProjectsListView(generics.ListAPIView):
     serializer_class = ProjectSerializer

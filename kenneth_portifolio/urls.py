@@ -19,9 +19,12 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from portifolio.views import health_check
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('health/', health_check),
     path('api/', include('portifolio.urls')),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 if settings.DEBUG:
