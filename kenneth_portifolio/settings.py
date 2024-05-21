@@ -106,7 +106,7 @@ DATABASES = {
                'NAME': os.getenv('RDS_NAME'),
                'USER': os.getenv('RDS_USERNAME'),
                'PASSWORD': os.getenv('RDS_PASSWORD'),
-               'HOST': 'kenneth-databse.cfiiua46u1u9.af-south-1.rds.amazonaws.com',
+               'HOST': os.getenv('RDS_HOST'),
                'PORT': os.getenv('RDS_PORT')
            }
 }
