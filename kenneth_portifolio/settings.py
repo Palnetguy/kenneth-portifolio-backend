@@ -26,7 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('DJANGO_SECRET_KEY')
+# SECRET_KEY = config('DJANGO_SECRET_KEY')
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -92,24 +93,24 @@ WSGI_APPLICATION = 'kenneth_portifolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# if DEBUG:
-#    DATABASES = {
-#        'default': {
-#            'ENGINE': 'django.db.backends.sqlite3',
-#            'NAME': BASE_DIR / 'db.sqlite3',
-#        }
-#    }
+if DEBUG:
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.sqlite3',
+           'NAME': BASE_DIR / 'db.sqlite3',
+       }
+   }
 # else:
-DATABASES = {
-           'default': {
-               'ENGINE': 'django.db.backends.postgresql',
-               'NAME': os.getenv('RDS_NAME'),
-               'USER': os.getenv('RDS_USERNAME'),
-               'PASSWORD': os.getenv('RDS_PASSWORD'),
-               'HOST': os.getenv('RDS_HOST'),
-               'PORT': os.getenv('RDS_PORT')
-           }
-}
+# DATABASES = {
+#            'default': {
+#                'ENGINE': 'django.db.backends.postgresql',
+#                'NAME': os.getenv('RDS_NAME'),
+#                'USER': os.getenv('RDS_USERNAME'),
+#                'PASSWORD': os.getenv('RDS_PASSWORD'),
+#                'HOST': os.getenv('RDS_HOST'),
+#                'PORT': os.getenv('RDS_PORT')
+#            }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -167,29 +168,29 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+# AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 
-AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.af-south-1.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_FILE_OVERWRITE = False
+# AWS_STORAGE_BUCKET_NAME = os.getenv('AWS_STORAGE_BUCKET_NAME')
+# AWS_S3_CUSTOM_DOMAIN = '%s.s3.af-south-1.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_FILE_OVERWRITE = False
 
-AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
-
-
-AWS_DEFAULT_ACL = None
+# AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
 
 
+# AWS_DEFAULT_ACL = None
 
-STORAGES = {
 
-    # Media file (image) management   
-    "default": {
-        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-    },
+
+# STORAGES = {
+
+#     # Media file (image) management   
+#     "default": {
+#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+#     },
     
-    # CSS and JS file management
-    "staticfiles": {
-        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
-    },
-}
+#     # CSS and JS file management
+#     "staticfiles": {
+#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+#     },
+# }
