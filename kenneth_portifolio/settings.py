@@ -93,24 +93,24 @@ WSGI_APPLICATION = 'kenneth_portifolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-if DEBUG:
-   DATABASES = {
-       'default': {
-           'ENGINE': 'django.db.backends.sqlite3',
-           'NAME': BASE_DIR / 'db.sqlite3',
-       }
-   }
+# if DEBUG:
+#    DATABASES = {
+#        'default': {
+#            'ENGINE': 'django.db.backends.sqlite3',
+#            'NAME': BASE_DIR / 'db.sqlite3',
+#        }
+#    }
 # else:
-# DATABASES = {
-#            'default': {
-#                'ENGINE': 'django.db.backends.postgresql',
-#                'NAME': os.getenv('RDS_NAME'),
-#                'USER': os.getenv('RDS_USERNAME'),
-#                'PASSWORD': os.getenv('RDS_PASSWORD'),
-#                'HOST': os.getenv('RDS_HOST'),
-#                'PORT': os.getenv('RDS_PORT')
-#            }
-# }
+DATABASES = {
+           'default': {
+               'ENGINE': 'django.db.backends.postgresql',
+               'NAME': os.getenv('PGDATABASE'),
+               'USER': os.getenv('PGUSER'),
+               'PASSWORD': os.getenv('PGPASSWORD'),
+               'HOST': os.getenv('PGHOST'),
+               'PORT': os.getenv('PGPORT')
+           }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
