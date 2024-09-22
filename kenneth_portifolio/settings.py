@@ -155,8 +155,13 @@ USE_TZ = True
 
 MEDIA_URL = 'media/'
 
-DATA_UPLOAD_MAX_MEMORY_SIZE = 262144000  # 250MB
-FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440000  # 250MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 2147483648  # 2GB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 2147483648  # 2GB
+
+# Increase timeout for admin
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240  # Increase if you have a lot of field
+# Build commad for uploading large files
+# web: gunicorn your_project.wsgi:application --bind 0.0.0.0:$PORT --timeout 600 --keep-alive 5 --max-requests 1200 --worker-class gthread --threads 3 --workers 2
 
 # MEDIA_ROOT = BASE_DIR / 'media'
 
