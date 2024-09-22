@@ -155,6 +155,9 @@ USE_TZ = True
 
 MEDIA_URL = 'media/'
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 262144000  # 250MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440000  # 250MB
+
 # MEDIA_ROOT = BASE_DIR / 'media'
 
 
@@ -186,6 +189,9 @@ AWS_S3_REGION_NAME = os.getenv('AWS_S3_REGION_NAME')
 
 
 AWS_DEFAULT_ACL = None
+
+# Increase timeout for S3 operations
+AWS_S3_CONNECT_TIMEOUT = 300  # 5 minutes
 
 
 
