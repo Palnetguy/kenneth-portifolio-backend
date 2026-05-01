@@ -64,16 +64,18 @@ MIDDLEWARE = [
 
 CSRF_TRUSTED_ORIGINS = [
     "https://kenneth-portifolio-backend.up.railway.app",
-    "http://kenneth-portifolio-backend.up.railway.app",
-    "https://backend.masaba-kenneth.info",
-    "http://backend.masaba-kenneth.info"
+    # "http://kenneth-portifolio-backend.up.railway.app",
+    "https://backend.masaba-kenneth.info"
+    # "http://backend.masaba-kenneth.info"
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:5500",
-    "http://192.168.100.6:5500",
+    # "http://127.0.0.1:5500",
+    # "http://192.168.100.6:5500",
     "https://masaba-kenneth.vercel.app",
     "http://masaba-kenneth.vercel.app",
+    "https://www.masaba-kenneth.info",
+    
 ]
 
 ROOT_URLCONF = 'kenneth_portifolio.urls'
